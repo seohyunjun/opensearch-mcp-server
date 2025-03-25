@@ -63,26 +63,6 @@ you need to change `path/to/src/opensearch_mcp_server` to the path where you clo
     }
   }
 }
-
-```json
-{
-  "mcpServers": {
-    "opensearch": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "path/to/src/opensearch_mcp_server",
-        "run",
-        "opensearch-mcp-server"
-      ],
-      "env": {
-        "OPENSEARCH_HOST": "https://localhost:9200",
-        "OPENSEARCH_USERNAME": "opensearch",
-        "OPENSEARCH_PASSWORD": "test123"
-      }
-    }
-  }
-}
 ```
 
 - On macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
