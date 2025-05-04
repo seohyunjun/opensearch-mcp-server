@@ -9,7 +9,11 @@ class IndexTools(OpensearchClient):
         
         @mcp.tool(description="List all indices in the Opensearch cluster")
         async def list_indices() -> list[TextContent]:
-            """List all indices in the Opensearch cluster."""
+            """
+            List all indices in the Opensearch cluster.
+            It is important to check the indices before searching documents
+            to understand what indices are avilable.
+            """
             self.logger.info("Listing indices...")
             try:
                 indices = self.es_client.cat.indices(format="json")
@@ -22,6 +26,8 @@ class IndexTools(OpensearchClient):
         async def get_mapping(index: str) -> list[TextContent]:
             """
             Get the mapping for an index.
+            It is important to always check the mappings to understand 
+            the exact field names and types before constructing queries or URLs.
             
             Args:
                 index: Name of the index
@@ -44,7 +50,7 @@ class IndexTools(OpensearchClient):
             """
             self.logger.info(f"Getting settings for index: {index}")
             try:
-                response = self.es_client.indices.get_settings(index=index)
+                response = self.es_client.indices.get_settings(index=index, h=["index", "health"])
                 return [TextContent(type="text", text=str(response))]
             except Exception as e:
                 self.logger.error(f"Error getting settings: {e}")
