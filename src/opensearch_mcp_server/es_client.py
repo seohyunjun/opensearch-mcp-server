@@ -18,6 +18,7 @@ class OpensearchClient:
             "host": os.getenv("OPENSEARCH_HOST"),
             "username": os.getenv("OPENSEARCH_USERNAME"),
             "password": os.getenv("OPENSEARCH_PASSWORD"),
+            "dashboards_host": os.getenv("DASHBOARDS_HOST"),
         }
 
         if not all([config["username"], config["password"]]):
