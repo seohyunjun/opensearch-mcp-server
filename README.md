@@ -58,7 +58,8 @@ you need to change `path/to/src/opensearch_mcp_server` to the path where you clo
       "env": {
         "OPENSEARCH_HOST": "https://localhost:9200",
         "OPENSEARCH_USERNAME": "opensearch",
-        "OPENSEARCH_PASSWORD": "test123"
+        "OPENSEARCH_PASSWORD": "test123",
+        "DASHBOARDS_HOST": "https://localhost:5601"
       }
     }
   }
